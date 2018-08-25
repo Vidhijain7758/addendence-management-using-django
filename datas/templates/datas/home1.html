@@ -1,0 +1,143 @@
+{% extends 'datas/master.html' %}
+
+
+{% block body %}
+
+ <nav class="navbar navbar-inverse">
+		    <div class="container-fluid">
+		        <div class="navbar-header">
+		            <a class="navbar-brand" href="#"> Dashboard</a>
+		        </div>
+
+		        <ul class="nav navbar-nav navbar-right">
+		            <li><a href=" {% url 'home' %}"><button type="button" class="btn btn-primary">Search Again</button></a></li>
+		        </ul>
+		    </div>
+		</nav>
+
+<br><br><br>
+
+<div class="row" id="household-spending">
+<h1> year : {{year}}  month: {{month}}</h1>
+<h2 align = 'center'> total working hours of : {{monthly}}</h2>
+
+<div>	<align = 'left'>  {{figure|safe}}  </div></align>
+<h4 align ='center'>day wise data for {{month}}: </h4>
+<table>
+    <tr rowspan =8>
+
+        <th> day : </th>
+        <th> hours :</th>
+        <th colspan = 2> work description:</th>
+        <th> project name:</th>
+
+
+    </tr>
+    {% for item in output%}
+
+    <tr rowspan = 8>
+
+
+        <td > {{item.day}}</td>
+        <td > {{item.shift_hours}}</td>
+        <td colspan = "2"> {{item.description}}</td>
+         <td > {{item.project}}</td>
+
+    </tr>
+    {% endfor %}
+
+
+
+</table>
+
+
+
+</div>
+
+
+     <style>
+
+
+	    	body {
+    			font-family: 'Montserrat';
+			}
+
+			.btn-outline-primary {
+				border-color: #FF7011;
+				color: #25303B;
+				pointer-events: none;
+			}
+
+			.btn-primary {
+				background-color: #FF7011;
+				border-color: #FF7011;
+				border-radius: 10px;
+				font-size: 1.2em;
+			}
+
+			h4 {
+			    margin:20px;
+				font-weight: bold;
+				color: #25303B;
+
+			}
+
+			h1 {
+			    margin: 20px;
+				font-family: 'Montserrat';
+			}
+
+			.main-content {
+				padding-left: 50px;
+				padding-top: 15px;
+    			padding-bottom: 50px;
+
+			}
+
+			.navbar-brand {
+				font-size: 1.75em;
+				font-color: white;
+				font-weight: bold;
+				padding-top: 25px;
+				pointer-events: none;
+			}
+
+			.navbar-inverse {
+				background-color: #25303B;
+				border-radius: 0px
+			}
+
+			.navbar-right {
+				padding-right: 20px;
+			}
+
+			table  {
+			    margin : 40px;
+    			border: 4px solid black;
+
+			}
+
+			th {
+				font-size: 1.05em;
+				background-color: pink;
+				border: 1px solid #DCDCDC;
+
+			}
+
+			 td {background-color: grey;
+				padding: 5px;
+				border: 1px solid #DCDCDC;
+                font-color :white;
+			}
+
+
+
+
+	    </style>
+
+
+
+
+}
+
+{% endblock %}

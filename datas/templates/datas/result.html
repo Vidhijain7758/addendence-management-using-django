@@ -1,0 +1,151 @@
+{% extends 'datas/master.html' %}
+
+
+{% block body %}
+
+ <nav class="navbar navbar-inverse">
+		    <div class="container-fluid">
+		        <div class="navbar-header">
+		            <a class="navbar-brand" href="#"> Dashboard</a>
+		        </div>
+
+		        <ul class="nav navbar-nav navbar-right">
+		            <li><a href=" {% url 'home' %}"><button type="button" class="btn btn-primary">Search Again</button></a></li>
+		        </ul>
+		    </div>
+		</nav>
+
+<br><br><br>
+
+<div class="row" id="household-spending">
+<h1> YEAR WISE DATA TABLE : </h1>
+
+
+<table>
+    <tr>
+        <th> year : </th>
+        <th> january: </th>
+         <th> febuary:</th>
+        <th> march:</th>
+        <th> april:</th>
+        <th> may:</th>
+        <th> june:</th>
+        <th> july:</th>
+        <th> august:</th>
+        <th> september:</th>
+        <th> octuber:</th>
+        <th> november:</th>
+        <th> december:</th>
+
+    </tr>
+
+         {% for item in output %}
+        <tr>
+            <td> {{item.year}}</td>
+            <td> {{item.january}}</td>
+            <td> {{item.feb}}</td>
+            <td> {{item.march}}</td>
+            <td> {{item.april}}</td>
+            <td> {{item.may}}</td>
+            <td> {{item.june}}</td>
+            <td> {{item.july}}</td>
+            <td> {{item.august}}</td>
+            <td> {{item.september}}</td>
+            <td> {{item.octuber}}</td>
+            <td> {{item.november}}</td>
+            <td> {{item.december}}</td>
+
+
+        </tr>
+         {% endfor %}
+</table>
+
+
+
+</div>
+
+
+     <style>
+	    	body {
+    			font-family: 'Montserrat';
+			}
+
+			.btn-outline-primary {
+				border-color: #FF7011;
+				color: #25303B;
+				pointer-events: none;
+			}
+
+			.btn-primary {
+				background-color: #FF7011;
+				border-color: #FF7011;
+				border-radius: 10px;
+				font-size: 1.2em;
+			}
+
+			h4 {
+			    margin:20px;
+				font-weight: bold;
+				color: #25303B;
+
+			}
+
+			h1 {
+			    margin: 20px;
+				font-family: 'Montserrat';
+			}
+
+			.main-content {
+				padding-left: 50px;
+				padding-top: 15px;
+    			padding-bottom: 50px;
+
+			}
+
+			.navbar-brand {
+				font-size: 1.75em;
+				font-color: white;
+				font-weight: bold;
+				padding-top: 25px;
+				pointer-events: none;
+			}
+
+			.navbar-inverse {
+				background-color: #25303B;
+				border-radius: 0px
+			}
+
+			.navbar-right {
+				padding-right: 20px;
+			}
+
+			table  {
+			    margin : 20px;
+    			border: 4px solid black;
+
+			}
+
+			th {
+				font-size: 1.05em;
+				background-color: pink;
+				border: 1px solid #DCDCDC;
+
+			}
+
+			 td {background-color: grey;
+				padding: 5px;
+				border: 1px solid #DCDCDC;
+                font-color :white;
+			}
+
+
+
+
+	    </style>
+
+
+
+{% endblock %}
+}
+
+

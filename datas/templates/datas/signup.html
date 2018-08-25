@@ -1,0 +1,18 @@
+{% extends 'datas/master.html' %}
+{% block body %}
+    <div class="container">
+    <h1>Registration</h1>
+<form method="post">
+    {% csrf_token %}
+    {{  form.as_p }}<br>
+    <button type="submit" class="btn btn-primary" style="margin-left: 20%">submit</button>
+</form>
+    <script>
+    {% if messages %}
+                {% for message in messages %}
+                    alert(message);
+                {% endfor %}
+            {% endif %}
+    </script>
+    </div>
+{% endblock %}
